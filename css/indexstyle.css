@@ -1,0 +1,210 @@
+
+/* ===== General Body & Layout ===== */
+body {
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.main {
+    flex: 1; /* keeps footer at bottom */
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+    background: #1abc9c;
+    color: black;
+}
+
+/* ===== Container & Grid Layout ===== */
+.container {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+}
+
+/* ===== Top & Footer Sections ===== */
+.top,
+.footer {
+    padding: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.top {
+    cursor: pointer;
+    height: 300px;
+    overflow: hidden;
+}
+
+.top img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.top:hover img {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+/* ===== Side Sections ===== */
+.side {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+    gap: 15px;
+    justify-items: center;
+}
+
+.side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ===== Center Grid & Items ===== */
+.center {
+    width: 100%;
+    padding: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.center-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* maximum 4 columns */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px; /* optional, prevents too many columns */
+}
+
+.center-item {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.center-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.center-item:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.center-item p {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* ===== Header ===== */
+.header-main {
+    position: relative;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Home icon fully on the left */
+.home-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.home-icon img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.home-icon img:hover {
+    opacity: 0.7;
+}
+
+/* Title stays centered */
+.header-main h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Flex container for title and date */
+.title-container {
+    display: flex;
+    justify-content: space-between; /* title left, date right */
+    align-items: center;
+    margin-top: 8px;
+}
+
+/* Optional: style the title */
+.event-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Optional: style the date */
+.event-date {
+    font-size: 12px;
+    color: #555;
+}
+
+/* ===== Responsive Styles ===== */
+@media screen and (max-width: 900px) {
+    .center-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    /* Shrink home icon on small screens */
+    .home-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Shrink header title and add padding to avoid overlap */
+    .header-main h1 {
+        font-size: 1.5rem;
+        padding: 0 50px;
+    }
+
+    .side {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-rows: none;
+        padding: 15px;
+    }
+
+    .side img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .center-grid {
+        grid-template-columns: 1fr; /* stack vertically on small screens */
+        padding: 15px;
+    }
+
+    .center-item img {
+        height: auto;
+        width: 100%;
+    }
+}
